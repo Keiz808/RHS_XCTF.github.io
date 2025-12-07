@@ -121,7 +121,6 @@ body {
     text-align: center;
 }
 
-/* Conversion table */
 #dist_table {
     width: 100%;
     border-collapse: collapse;
@@ -149,25 +148,23 @@ body {
 /* =================== WORKOUT CHART =================== */
 #workout_chart {
     display: flex;
-    justify-content: center; /* center wrapper on desktop */
+    justify-content: center;
     width: 100%;
 }
 
-/* WRAPPER FOR SCROLLING */
 #wo_table_wrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    width: 100%;          /* wrapper fills container */
+    width: 100%;
 }
 
-/* WORKOUT TABLE */
 #wo_table {
     border-collapse: collapse;
     table-layout: auto;
-    min-width: 600px;     /* ensures horizontal scroll if content is wide */
-    width: auto;          /* natural width based on content */
-    margin: 0 auto;       /* center table on desktop */
-    white-space: nowrap;  /* prevent text wrapping */
+    min-width: 600px;
+    width: auto;
+    margin: 0 auto;
+    white-space: nowrap;
 }
 
 #wo_table td,
@@ -176,12 +173,6 @@ body {
     text-align: center;
     font-size: clamp(1rem, 2vw, 2rem);
     padding: 0.5rem;
-}
-
-.pace,
-.w_type,
-.w_pace {
-    text-align: center;
 }
 
 /* =================== BOT =================== */
@@ -200,14 +191,14 @@ body {
     #top {
         flex-direction: column;
         gap: 2rem;
-        align-items: center;  /* center children horizontally */
+        align-items: center;
     }
 
     #calculator_parent,
     #conversion_parent {
         width: 100%;
-        max-width: 350px;   /* keeps nice width */
-        margin: 0 auto;     /* center each box */
+        max-width: 350px;
+        margin: 0 auto;
     }
 
     #time_parent {
@@ -216,38 +207,34 @@ body {
         gap: 0.2rem;
     }
 
-    /* Workout table wrapper flush left */
     #wo_table_wrapper {
         padding-left: 0;
     }
 
-    /* Workout table scrollable */
     #wo_table {
         font-size: 1.2rem;
-        margin: 0;           /* scroll starts at leftmost column */
+        margin: 0;
         white-space: nowrap;
     }
 }
 
-/* Mobile portrait specifically */
+/* 🔥 FIXED — MOBILE PORTRAIT */
 @media (max-width: 600px) and (orientation: portrait) {
-    #body_parent,
-    #top {
-        width: 100vw;         /* ensures parent is full viewport width */
-        overflow-x: visible;
-    }
 
-    #wo_table_wrapper {
-        padding-left: 0;
-    }
-
+    /* Allow content to fit screen width */
     #wo_table {
-        min-width: 0;         /* allow table to shrink */
-        max-width: 100%;      /* fits screen width */
-        width: auto;          /* natural width based on content */
-        font-size: 1rem;      /* smaller font for mobile */
-        white-space: nowrap;  /* keep table in one line */
-        margin: 0;            /* flush left for scroll */
+        min-width: 450px;   /* smaller table for portrait */
+        max-width: none;
+        width: auto;
+        font-size: 1rem;
+        white-space: nowrap;
+    }
+
+    /* Make sure wrapper can scroll */
+    #wo_table_wrapper {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
     }
 }
 
@@ -275,7 +262,7 @@ body {
     }
 }
 
-/* Remove arrows from number inputs */
+/* Number inputs - remove arrows */
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
