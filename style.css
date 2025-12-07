@@ -119,8 +119,6 @@ body {
     min-width: 300px;
     width: 100%;
     text-align: center;
-    padding: 1rem;
-    /* This padding will be removed on mobile via media query */
 }
 
 #dist_table {
@@ -147,38 +145,43 @@ body {
     font-size: clamp(1.2rem, 2.5vw, 2rem);
 }
 
-/* =================== WORKOUT CHART =================== */
+/* =================== WORKOUT GRID =================== */
 #workout_chart {
     display: flex;
     justify-content: center;
     width: 100%;
 }
 
-#wo_table_wrapper {
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
+#wo_grid_wrapper {
+    display: grid;
+    grid-template-columns: 220px repeat(4, minmax(140px, 1fr)); /* wider columns for desktop */
+    gap: 0;
     width: 100%;
-    /* Ensure the wrapper is flush with the edge of its parent */
-    padding: 0; /* Removed padding to help with scroll position */
-    margin: 0;
+    max-width: 1600px; /* ↑ longer table on large screens */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
-#wo_table {
-    border-collapse: collapse;
-    table-layout: auto;
-    min-width: 600px;
-    width: auto;
-    /* Crucial fix: Remove auto margin so the table starts at the far left of the wrapper */
-    margin: 0;
-    white-space: nowrap;
+.grid_row {
+    display: contents; /* cells participate in parent grid */
 }
 
-#wo_table td,
-#wo_table th {
+.grid_cell {
     border: 2px solid black;
     text-align: center;
     font-size: clamp(1rem, 2vw, 2rem);
     padding: 0.5rem;
+    white-space: nowrap; /* prevent wrapping of long times */
+}
+
+.header .grid_cell {
+    font-weight: bold;
+    background-color: #ddd;
+}
+
+.w_type {
+    text-align: left;
+    padding-left: 0.5rem;
 }
 
 /* =================== BOT =================== */
@@ -191,82 +194,58 @@ body {
 }
 
 /* =================== RESPONSIVE =================== */
-/* -------- RESTORED OLD MOBILE UI -------- */
-@media (max-width: 600px) {
 
+/* Small mobile */
+@media (max-width: 600px) {
     #top {
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
         gap: 2rem;
-        overflow-x: visible;
-    }
-
-    /* FIX 2: Remove border/padding around conversion chart on mobile */
-    #conversion_parent {
-        padding: 0;
-        border: none;
+        align-items: center;
     }
 
     #calculator_parent,
     #conversion_parent {
         width: 100%;
         max-width: 350px;
+        margin: 0 auto;
     }
 
     #time_parent {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 0.3rem;
-    }
-
-    /* FIX 1: Ensure the table wrapper starts the scroll at the far left */
-    #wo_table_wrapper {
-        overflow-x: scroll;
-        -webkit-overflow-scrolling: touch;
-        width: 100%;
-        padding: 0; /* Remove internal padding on mobile */
-    }
-
-    #wo_table {
-        min-width: 600px;
-        white-space: nowrap;
-        font-size: 1.1rem;
-        margin: 0; /* Ensure table is flush left */
-    }
-
-    #wo_table th,
-    #wo_table td {
-        white-space: nowrap;
+        gap: 0.2rem;
     }
 }
 
-/* Mobile portrait specifically */
+/* 🔥 MOBILE PORTRAIT CARDS */
 @media (max-width: 600px) and (orientation: portrait) {
 
-    /* FIX 1: Explicitly set margin to 0 and remove max-width */
-    #wo_table {
-        min-width: 450px; 
-        max-width: none;
-        width: auto;
+    /* Hide desktop header row */
+    .header {
+        display: none;
+    }
+
+    /* Each workout becomes a stacked card */
+    .workout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border: 2px solid black;
+        margin-bottom: 1rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+    }
+
+    .workout .grid_cell {
+        border: none;
+        padding: 0.25rem 0.5rem;
         font-size: 1rem;
-        white-space: nowrap;
-        word-break: keep-all;
-        margin: 0;
+        text-align: left;
+        white-space: normal; /* allow wrapping in cards if needed */
     }
 
-    #wo_table td,
-    #wo_table th {
-        white-space: nowrap;
-        word-break: keep-all;
-    }
-
-    /* FIX 1: Set padding to 0 and use !important to override other rules */
-    #wo_table_wrapper {
-        overflow-x: scroll !important;
-        -webkit-overflow-scrolling: touch;
-        width: 100%;
-        padding: 0 !important;
+    .workout .grid_cell:nth-child(odd) {
+        font-weight: bold;
     }
 }
 
@@ -287,20 +266,6 @@ body {
 
     #time_parent {
         flex-wrap: nowrap;
-    }
-
-    #wo_table {
-        max-width: 1000px;
-        /* Keep the default margin: 0 auto; alignment for desktop by NOT overriding it here,
-           but since you have margin: 0 auto in the original code, I'll keep it out of the
-           media query to let it apply for large screens when the table is not at min-width. */
-        margin: 0 auto;
-    }
-    
-    /* Re-apply desktop margin/padding to conversion chart parent */
-    #conversion_parent {
-        padding: 1rem;
-        border: none;
     }
 }
 
