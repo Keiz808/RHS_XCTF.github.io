@@ -1,586 +1,233 @@
-body {
+/* =================== GLOBAL STYLES =================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
     overflow-x: hidden;
 }
 
-#head,
-#body_parent,
-#workout_chart,
-#bot {
-    width: 100%;
-}
-
-/* ========== MOBILE FIX — max-width 601px ========== */
-@media (max-width: 601px) {
-
-    #top {
-        display: block;
-        width: 100%;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    .titles {
-        text-align: center;
-        width: 100%;
-        font-size: 2.2rem;
-        margin: 1rem 0rem 2rem 0rem;
-        transform: none;
-    }
-
-    #calculator_parent,
-    #conversion_parent {
-        width: 95%;
-        margin: 1.5rem auto;
-        text-align: left;
-        transform: none !important;
-        max-width: 600px;
-    }
-
-    /* Fix conversion table cutoff */
-    #dist_table {
-        width: 100% !important;
-        max-width: 100% !important;
-        table-layout: fixed;
-    }
-
-    .c_event,
-    .c_time {
-        font-size: 1.6rem;
-        word-break: break-word;
-        white-space: normal;
-    }
-
-    #wo_table {
-        width: 95%;
-        margin: 2rem auto 0 auto;
-        transform: none !important;
-    }
-}
-
-/* ========== MEDIUM DESKTOP FIX — prevent overlap ========== */
-@media (min-width: 602px) and (max-width: 900px) {
-    #conversion_parent {
-        margin-top: 6rem !important; /* pushes chart lower under title */
-    }
-}
-
-/* ========== DESKTOP STYLES — min-width 602px ========== */
-@media (min-width: 602px) {
-
-    #conversion_parent {
-        margin-left: 5rem;
-margin-left: -40px;
-        height: auto;
-        max-width: 350px;
-    }
-
-    #dist_table {
-        width: 27rem;
-        height: 20rem;
-
-    }
-}
-
-/**************************** HEAD *******************************/
+/* =================== HEAD =================== */
 #head {
     display: flex;
-    height: auto;
-    width: 100%;
-    text-align: start;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    margin-bottom: 10vh;
-}
-
-#head_text,
-#cd {
-    display: block;
-    width: 100%;
     text-align: center;
+    padding: 2rem 1rem;
 }
 
 #head_text {
-    margin-top: 1rem;
-    font-size: 8rem;
+    font-size: clamp(3rem, 8vw, 8rem);
+    margin-bottom: 0.5rem;
 }
 
 #cd {
-    font-size: 3rem;
+    font-size: clamp(1.5rem, 4vw, 3rem);
 }
 
-/************************* Body_parent ***************************/
+/* =================== BODY PARENT =================== */
 #body_parent {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    width: 100%;
+    padding: 0 1rem;
+    gap: 3rem;
 }
 
 .titles {
-    font-size: 2.5rem;
-    transform: translateY(2rem);
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
+/* =================== TOP SECTION: CALCULATOR + CONVERSION =================== */
 #top {
     display: flex;
-    width: 800px;
-    margin: 0 auto;
-    justify-content: center;
-    flex-direction: row;
     flex-wrap: wrap;
-    transform: none;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    gap: 2rem;
+    margin: 0 auto;
 }
 
-/**************************** Calc *******************************/
+/* ---- CALCULATOR ---- */
 #calculator_parent {
-    height: 14rem;
-    flex: 1 1 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     max-width: 350px;
-    margin-top: 1rem;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
 }
 
-#time_parent {
-    width: 340px;
-}
-
-#time_parent span {
-    line-height: 1.5rem;
-    align-self: center;
-    font-size: 2rem;
-}
-
-#min, #sec {
-    width: 2rem;
-    height: 1.5rem;
-    transform: translateY(-4.9px);
-}
-
-#sec { margin-left: 0.2rem; }
-
-#calculate {
-    margin-top: 1rem;
-    height: 3rem;
-    width: 80%;
-    max-width: 200px;
-    max-height: 100px;
-    text-align: center;
-    display: block;
-    margin-right: auto;
-    position: relative;
-    z-index: 100;
-}
-
-.txt {
-    font-size: 2rem;
+#event_parent {
+    width: 100%;
+    margin-bottom: 1rem;
 }
 
 #eventSelector {
-    height: 2rem;
-    transform: translateY(-0.2rem);
+    height: 2.2rem;
+    font-size: 1rem;
 }
 
-/**************************** Conv *******************************/
-/* Make conversion parent responsive */
-#conversion_parent {
-    height: auto;          /* allow the height to grow naturally */
-    margin-left: -40px;    /* replaces transform */
-}
-
-/* FIXED: No more double/gapped borders */
-#dist_table {
-    border-collapse: collapse;
+#time_parent {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: nowrap; /* keeps everything on one line on desktop */
     margin-bottom: 1rem;
+}
+
+.time_inputs {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem; /* space between input and its label */
+}
+
+.time_inputs input {
+    width: 3rem;
+    height: 2rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+#calculate {
+    width: 80%;
+    max-width: 200px;
+    height: 3rem;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+}
+
+/* ---- CONVERSION CHART ---- */
+#conversion_parent {
+    max-width: 350px;
+    width: 100%;
+    text-align: center;
+}
+
+#dist_table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
 }
 
 #dist_table td {
     border: 2px solid black;
-    padding: 0;
-}
-.c_event,
-.c_time {
-    font-size: 2rem;
-    text-align: end;
-}
-
-.c_event{
-    width: 6rem;
-}
-
-
-
-/**************************** wotb *******************************/
-#workout_chart {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    margin-top: 15rem;
-}
-
-#wo_table {
-    width: 40rem;
-    border-collapse: collapse;
-    transform: translateX(-0.45rem);
-    transform: translateY(-5rem);
-}
-
-#t_t {
-    border: 2px solid black;
-}
-
-.pace {
-    width: 5rem;
-    border: 2px solid black;
-}
-
-.w_type {
-    font-size: 2rem;
-    border: 2px solid black;
-}
-
-.w_pace {
-    text-align: end;
-    height: 3rem;
-    width: 5rem;
-    border: 2px solid black;
-    font-size: 2rem;
-}
-
-/**************************** bot *******************************/
-#bot {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 1.5rem;
-}
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
-#head,
-#body_parent,
-#workout_chart,
-#bot {
-    width: 100%;
-}
-
-@media (max-width: 601px) {
-
-    /* ... existing rules ... */
-    #body_parent {
-        /* Align-items centers items along the cross-axis, which is the horizontal center when flex-direction is row (desktop) or column (mobile, though not explicitly set) */
-        align-items: center;
-        padding: 0;
-        margin: 0;
-    }
-
-    /* Center the individual stacked components */
-    #calculator_parent,
-    #conversion_parent {
-        /* This is the key that works when the parent margins are cleared: */
-        display: block;
-        width: 98%;
-        margin: 1rem auto;
-        /* COMBINES margin-top/bottom and margin-left/right: auto for centering */
-
-        /* Clear all old flex rules that are now redundant: */
-        max-width: none;
-        flex: none;
-
-        padding: 0 10px;
-    }
-
-    /* Ensure internal text is aligned for readability */
-    #calculator_parent,
-    #conversion_parent {
-        text-align: left;
-        /* Keep content left-aligned within the centered box */
-    }
-
-    .c_event {
-        white-space: nowrap;
-        border-style: solid;
-        border-width: 2px 2px 2px 2px;
-        width: rem;
-        font-size: 2rem;
-        padding-left: 10px;
-    }
-
-
-    .c_time {
-        /* NEW STYLE: Set width to auto to ensure it consumes all remaining space */
-        width: auto;
-        font-size: 2rem;
-    }
-
-    #wo_table {
-        width: 98%;
-        /* <-- CHANGED from 95% */
-        transform: none;
-        /* Ensures the table is truly centered by making it responsive to its parent */
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #top {
-display: block; /* Ensures block-level flow */
- /* FIX: Override the desktop width for mobile */
- width: 100%; 
-
-margin: 0 auto;
-
-/* Ensures #top itself is centered (though it is 100% wide) */
- justify-content: center;
-    }
-
-    body {
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-    }
-
-    *,
-    *::before,
-    *::after {
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-
-    .time_group {
-
-    display: flex;
-    justify-content: center; /* Center the group within its desktop space */
-    align-items: center;
-
-    }
-}
-
-/**************************** HEAD *******************************/
-#head {
-    display: flex;
-    height: auto;
-    width: 100%;
-    text-align: start;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 10vh
-}
-
-#head_text,
-#cd {
-    display: block;
-    width: 100%;
-    text-align: center;
-}
-
-#head_text {
-    margin-top: 1rem;
-    font-size: 8rem;
-}
-
-#cd {
-    font-size: 3rem
-}
-
-/************************* Body_parent ***************************/
-
-#body_parent {
-    display: flex;
-    /* Keep this */
-    flex-wrap: wrap;
-    justify-content: center;
-    /* ... */
-}
-
-.titles {
-    font-size: 2.5rem;
-    transform: translateY(2rem);
-}
-
-#top {
-    display: flex;
-    /* CRITICAL CHANGE 1: Set a fixed width smaller than the screen */
-    width: 800px;
-
-    /* CRITICAL CHANGE 2: Use margin: 0 auto to center the constrained width block */
-    margin: 0 auto;
-
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    transform: none;
-}
-
-/**************************** Calc *******************************/
-
-#calculator_parent {
-    height: 14rem;
-    /* CRITICAL: Add flex-basis here too for proper side-by-side spacing */
-    flex: 1 1 280px;
-    max-width: 350px;
-    margin-top: 1rem;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#time_parent{
-    width:340px
-}
-#time_parent span {
-    /* Ensures the min/sec labels are aligned with the inputs */
-    line-height: 1.5rem;
-    align-self: center;
-    font-size: 2rem;
-
-}
-
-#min {
-    width: 2rem;
-    transform: translateY(-4.9px)
-}
-
-#sec {
-    width: 2rem;
-    margin-left: 0.2rem;
-    transform: translateY(-4.9px)
-}
-
-#calculate {
-    margin-top: 1rem;
-    height: 3rem;
-    width: 80%;
-    /* Allow it to take up 80% of its parent container's width */
-    max-width: 200px;
-    max-height: 100px;
-    /* Crucial: Prevents it from getting bigger than, say, 200 pixels */
-    text-align: center;
-    /* Changed from 'start' to 'center' for better appearance */
-    /* If you want it centered in its parent: */
-    display: block;
-    margin-right: auto;
-    position: relative;
-    z-index: 100
-}
-
-.txt {
-    font-size: 2rem;
-    /* <-- CHANGED from 1.5rem */
-}
-
-#eventSelector {
-    height: 2rem;
-    transform: translateY(-0.2rem);
-}
-
-#min {
-    height: 1.5rem
-}
-
-#sec {
-    height: 1.5rem
-}
-
-/**************************** Conv *******************************/
-
-#conversion_parent {
-    /* INCREASED MARGIN: This pushes the conversion chart farther away from the calculator */
-    margin-left: 5rem;
-   transform:translateX(-40px);
-    /* Changed from 2rem to 5rem for a larger shift/gap */
-    height: 15rem;
-
-    /* CRITICAL: Restore the flex-basis property for desktop side-by-side */
-    flex: 1 1 280px;
-
-    max-width: 350px;
-    clear: both;
-    margin-top: 1rem;
-
-}
-
-#dist_table {
-    width: 27rem;
-    /* <-- CHANGED from 20rem */
-    height: 20rem;
-    border-collapse: collapse;
+    padding: 0.5rem;
+    word-break: break-word;
 }
 
 .c_event {
-    border-style: solid;
-    border-width: 2px 2px 2px 2px;
-    width: 3rem;
-    font-size: 2rem;
-    /* <-- CHANGED from 1.5rem */
+    width: 40%;
+    text-align: left;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
 }
 
 .c_time {
-    border-style: solid;
-    border-width: 2px 2px 2px 2px;
-    text-align: end;
-    font-size: 2rem;
-    /* <-- CHANGED from 1.5rem */
+    text-align: right;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
 }
 
-/**************************** wotb *******************************/
-
+/* =================== WORKOUT CHART =================== */
 #workout_chart {
     display: flex;
-    width: 100%;
     justify-content: center;
-    margin-top: 15rem;
+    width: 100%;
 }
 
 #wo_table {
-    width: 40rem;
     border-collapse: collapse;
-    transform: translateX(-0.45rem)
+    width: 100%;
+    max-width: 1000px; /* wider table on desktop */
+    min-width: 300px;
 }
 
-#t_t {
-    border-style: solid;
-    border-width: 2px;
+#wo_table td,
+#wo_table th {
+    border: 2px solid black;
+    text-align: center;
+    font-size: clamp(1rem, 2vw, 2rem);
+    padding: 0.5rem;
 }
 
-.pace {
-    width: 5rem;
-    border-style: solid;
-    border-width: 2px;
-}
-
-/*top format*/
-
-.w_type {
-    font-size: 2rem;
-    border-style: solid;
-    border-width: 2px;
-}
-
+.pace,
+.w_type,
 .w_pace {
-    text-align: end;
-    height: 3rem;
-    width: 5rem;
-    border-style: solid;
-    border-width: 2px;
-    font-size: 2rem;
+    text-align: center;
 }
 
-/**************************** bot *******************************/
+/* =================== BOT =================== */
 #bot {
-    margin-top: 2rem;
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 1.5rem;
-
-
+    margin: 2rem auto;
 }
 
-/*changed 7*/
+/* =================== RESPONSIVE =================== */
+
+/* Small mobile */
+@media (max-width: 600px) {
+    #top {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    #time_parent {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.2rem;
+    }
+
+    #wo_table {
+        font-size: 1.2rem;
+    }
+}
+
+/* Medium screens */
+@media (min-width: 601px) and (max-width: 900px) {
+    #top {
+        gap: 2rem;
+    }
+}
+
+/* Large desktop */
+@media (min-width: 901px) {
+    #body_parent {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #time_parent {
+        flex-wrap: nowrap;
+    }
+
+    #wo_table {
+        max-width: 1000px;
+    }
+}
+
+/* Remove arrows from number inputs */
+
+/* Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
