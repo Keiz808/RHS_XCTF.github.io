@@ -29,9 +29,11 @@
                     </p>
                 </div>
                 <div id="time_parent">
-                    <span>Enter Time:</span>
-                    <input id="min"><span>min</span>
-                    <input id="sec"><span>sec</span>
+                    <label>Enter Time:</label>
+                    <div class="time_inputs">
+                        <input id="min" placeholder="0"> <span>min</span>
+                        <input id="sec" type="number" min="0" value="0"> <span>sec</span>
+                    </div>
                 </div>
                 <button onclick="calculate()" id="calculate"> Calculate </button>
             </div> <!-- End of calculator-->
