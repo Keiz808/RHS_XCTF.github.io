@@ -12,7 +12,15 @@ body {
 }
 
 @media (max-width: 600px) {
+
     /* ... existing rules ... */
+    #body_parent {
+        /* Force horizontal alignment to center for stacked items */
+        align-items: center;
+        /* Ensure there's no inherited margin causing shifts */
+        padding: 0;
+        margin: 0;
+    }
 
     #calculator_parent,
     #conversion_parent {
@@ -20,16 +28,22 @@ body {
         max-width: none;
         flex: 1 1 98%;
 
-        /* CRITICAL FIX: margin: auto will center a block-level element */
-        margin-left: auto;
-        margin-right: auto;
+        /* CRITICAL: Remove all automatic margins (auto) that might conflict with align-items: center */
+        margin-left: 0 !important;
+        /* Force to zero */
+        margin-right: 0 !important;
+        /* Force to zero */
 
-        /* Ensure the content inside the calculator/conversion parent is centered */
-        text-align: center;
+        /* Ensure content inside is left-aligned, as the entire block is now centered */
+        text-align: left;
+        /* Keep content left-aligned for readability */
 
-        /* Add a small vertical margin for spacing */
+        /* Reintroduce vertical spacing */
         margin-top: 1rem;
         margin-bottom: 1rem;
+
+        padding: 0 10px;
+        /* Keep the padding to pull content inward */
     }
 
     .c_event {
@@ -57,10 +71,14 @@ body {
     }
 
     #top {
+        width: 100%;
+        /* Must be full width */
         margin-left: 0;
-        /* NEW: Remove the desktop negative margin shift */
+        /* Remove the desktop negative margin shift */
         justify-content: center;
-        /* Ensure contents are centered within #top */
+        /* Still centers its immediate children */
+        padding: 0;
+        margin: 0;
     }
 
     /* ... remaining rules ... */
@@ -276,4 +294,4 @@ body {
 
 }
 
-/*changed 2*/
+/*changed 4*/
