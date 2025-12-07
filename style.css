@@ -75,6 +75,7 @@ body {
 #event_parent {
     width: 100%;
     margin-bottom: 1rem;
+    transform: translateX(14.5%)
 }
 
 #eventSelector {
@@ -158,6 +159,7 @@ body {
     gap: 0;
     width: 100%;
     max-width: 1400px;
+    /* desktop max width */
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 }
@@ -171,11 +173,7 @@ body {
     text-align: center;
     font-size: clamp(1rem, 2vw, 2rem);
     padding: 0.5rem;
-
-    white-space: normal;
-    /* allow text wrapping */
-    overflow-wrap: break-word;
-    /* break long text if necessary */
+    white-space: nowrap;
 }
 
 .header .grid_cell {
