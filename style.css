@@ -48,7 +48,7 @@ body {
     margin-bottom: 1rem;
 }
 
-/* =================== TOP SECTION: CALCULATOR + CONVERSION =================== */
+/* =================== TOP SECTION =================== */
 #top {
     display: flex;
     flex-wrap: wrap;
@@ -153,8 +153,8 @@ body {
 }
 
 #wo_table_wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    overflow-x: scroll;               /* ← forced scrolling */
+    -webkit-overflow-scrolling: touch; /* ← smooth mobile scrolling */
     width: 100%;
 }
 
@@ -221,18 +221,23 @@ body {
 /* 🔥 FIXED — MOBILE PORTRAIT */
 @media (max-width: 600px) and (orientation: portrait) {
 
-    /* Allow content to fit screen width */
     #wo_table {
-        min-width: 450px;   /* smaller table for portrait */
+        min-width: 450px;      /* ← shrinks table width on portrait */
         max-width: none;
         width: auto;
         font-size: 1rem;
-        white-space: nowrap;
+        white-space: normal;   /* ← wraps text instead of forcing huge width */
+        word-break: break-word;
     }
 
-    /* Make sure wrapper can scroll */
+    #wo_table td,
+    #wo_table th {
+        white-space: normal;   /* ← ensures wrapping */
+        word-break: break-word;
+    }
+
     #wo_table_wrapper {
-        overflow-x: auto !important;
+        overflow-x: scroll !important;  /* ← guaranteed scroll in portrait */
         -webkit-overflow-scrolling: touch;
         width: 100%;
     }
@@ -268,3 +273,5 @@ input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+/* change */
