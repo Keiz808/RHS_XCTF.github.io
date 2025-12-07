@@ -11,7 +11,7 @@ body {
     width: 100%;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 601px) {
 
     /* ... existing rules ... */
     #body_parent {
@@ -54,30 +54,54 @@ body {
     }
 
 
-.c_time {
-    /* NEW STYLE: Set width to auto to ensure it consumes all remaining space */
-    width: auto;
-    font-size: 2rem;
-}
+    .c_time {
+        /* NEW STYLE: Set width to auto to ensure it consumes all remaining space */
+        width: auto;
+        font-size: 2rem;
+    }
 
-#wo_table {
-    width: 98%;
-    /* <-- CHANGED from 95% */
-    transform: none;
-    /* Ensures the table is truly centered by making it responsive to its parent */
-    margin-left: auto;
-    margin-right: auto;
-}
+    #wo_table {
+        width: 98%;
+        /* <-- CHANGED from 95% */
+        transform: none;
+        /* Ensures the table is truly centered by making it responsive to its parent */
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-#top {
-    display: block;
-    /* Ensures block-level flow */
-    width: 100%;
-    margin: 0 auto;
-    /* Ensures #top itself is centered (though it is 100% wide) */
-}
+    #top {
+display: block; /* Ensures block-level flow */
+ /* FIX: Override the desktop width for mobile */
+ width: 100%; 
 
-/* ... remaining rules ... */
+margin: 0 auto;
+
+/* Ensures #top itself is centered (though it is 100% wide) */
+ justify-content: center;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    *,
+    *::before,
+    *::after {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .time_group {
+
+    display: flex;
+    justify-content: center; /* Center the group within its desktop space */
+    align-items: center;
+
+    }
 }
 
 /**************************** HEAD *******************************/
@@ -124,26 +148,33 @@ body {
 
 #top {
     display: flex;
-    width: 100%;
+    /* CRITICAL CHANGE 1: Set a fixed width smaller than the screen */
+    width: 800px;
+
+    /* CRITICAL CHANGE 2: Use margin: 0 auto to center the constrained width block */
+    margin: 0 auto;
+
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
     transform: none;
-    /* Ensure transform is gone */
-
-    /* NEW STYLE: Apply a small negative margin to shift the centered block left */
-    margin-left: -45px;
-    /* Adjust this value (e.g., -50px) to control the shift */
 }
 
 /**************************** Calc *******************************/
 
 #calculator_parent {
     height: 14rem;
+    /* CRITICAL: Add flex-basis here too for proper side-by-side spacing */
+    flex: 1 1 280px;
     max-width: 350px;
     margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+#time_parent{
+    width:340px
+}
 #time_parent span {
     /* Ensures the min/sec labels are aligned with the inputs */
     line-height: 1.5rem;
@@ -159,7 +190,7 @@ body {
 
 #sec {
     width: 2rem;
-    margin-left: 0.5rem;
+    margin-left: 0.2rem;
     transform: translateY(-4.9px)
 }
 
@@ -201,14 +232,19 @@ body {
 /**************************** Conv *******************************/
 
 #conversion_parent {
-margin-left: 2rem; 
-height: 15rem;
-flex: 1 1 280px;
-/* Use a flex basis to control minimum size, then let it grow */
-max-width: 350px;
-/* Keep it from getting too big on desktop */
-clear: both;
-margin-top: 1rem;
+    /* INCREASED MARGIN: This pushes the conversion chart farther away from the calculator */
+    margin-left: 5rem;
+   transform:translateX(-40px);
+    /* Changed from 2rem to 5rem for a larger shift/gap */
+    height: 15rem;
+
+    /* CRITICAL: Restore the flex-basis property for desktop side-by-side */
+    flex: 1 1 280px;
+
+    max-width: 350px;
+    clear: both;
+    margin-top: 1rem;
+
 }
 
 #dist_table {
@@ -288,4 +324,4 @@ margin-top: 1rem;
 
 }
 
-/*changed 6*/
+/*changed 7*/
