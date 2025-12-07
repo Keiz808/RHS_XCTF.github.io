@@ -184,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("400").textContent = formatTime(four)
 
             //400 -> 1500
-            let fifteen = four / 0.20499
+            let fifteen = four / 0.205
             document.getElementById("1500").textContent = formatTime(fifteen)
 
             //400 -> 200
@@ -196,11 +196,11 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("100").textContent = formatTime(one)
 
             //1500 -> 3k
-            let three = fifteen * 2.23061
+            let three = fifteen * 2.23
             document.getElementById("3k").textContent = formatTime(three)
 
             //3k -> 5k
-            let five = three * 1.78049
+            let five = three * 1.781
             document.getElementById("5k").textContent = formatTime(five)
 
 
@@ -478,7 +478,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("3k").textContent = formatTime(three)
 
             //3000 -> 5000
-            let five = tot*1.78048
+            let five = tot*1.781
             document.getElementById("5k").textContent = formatTime(five)
 
             //3000 -> 1500
