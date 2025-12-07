@@ -11,6 +11,264 @@ body {
     width: 100%;
 }
 
+/* ========== MOBILE FIX — max-width 601px ========== */
+@media (max-width: 601px) {
+
+    #top {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .titles {
+        text-align: center;
+        width: 100%;
+        font-size: 2.2rem;
+        margin: 1rem 0rem 2rem 0rem;
+        transform: none;
+    }
+
+    #calculator_parent,
+    #conversion_parent {
+        width: 95%;
+        margin: 1.5rem auto;
+        text-align: left;
+        transform: none !important;
+        max-width: 600px;
+    }
+
+    /* Fix conversion table cutoff */
+    #dist_table {
+        width: 100% !important;
+        max-width: 100% !important;
+        table-layout: fixed;
+    }
+
+    .c_event,
+    .c_time {
+        font-size: 1.6rem;
+        word-break: break-word;
+        white-space: normal;
+    }
+
+    #wo_table {
+        width: 95%;
+        margin: 2rem auto 0 auto;
+        transform: none !important;
+    }
+}
+
+/* ========== MEDIUM DESKTOP FIX — prevent overlap ========== */
+@media (min-width: 602px) and (max-width: 900px) {
+    #conversion_parent {
+        margin-top: 6rem !important; /* pushes chart lower under title */
+    }
+}
+
+/* ========== DESKTOP STYLES — min-width 602px ========== */
+@media (min-width: 602px) {
+
+    #conversion_parent {
+        margin-left: 5rem;
+margin-left: -40px;
+        height: auto;
+        max-width: 350px;
+    }
+
+    #dist_table {
+        width: 27rem;
+        height: 20rem;
+
+    }
+}
+
+/**************************** HEAD *******************************/
+#head {
+    display: flex;
+    height: auto;
+    width: 100%;
+    text-align: start;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10vh;
+}
+
+#head_text,
+#cd {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+#head_text {
+    margin-top: 1rem;
+    font-size: 8rem;
+}
+
+#cd {
+    font-size: 3rem;
+}
+
+/************************* Body_parent ***************************/
+#body_parent {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.titles {
+    font-size: 2.5rem;
+    transform: translateY(2rem);
+}
+
+#top {
+    display: flex;
+    width: 800px;
+    margin: 0 auto;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    transform: none;
+}
+
+/**************************** Calc *******************************/
+#calculator_parent {
+    height: 14rem;
+    flex: 1 1 280px;
+    max-width: 350px;
+    margin-top: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#time_parent {
+    width: 340px;
+}
+
+#time_parent span {
+    line-height: 1.5rem;
+    align-self: center;
+    font-size: 2rem;
+}
+
+#min, #sec {
+    width: 2rem;
+    height: 1.5rem;
+    transform: translateY(-4.9px);
+}
+
+#sec { margin-left: 0.2rem; }
+
+#calculate {
+    margin-top: 1rem;
+    height: 3rem;
+    width: 80%;
+    max-width: 200px;
+    max-height: 100px;
+    text-align: center;
+    display: block;
+    margin-right: auto;
+    position: relative;
+    z-index: 100;
+}
+
+.txt {
+    font-size: 2rem;
+}
+
+#eventSelector {
+    height: 2rem;
+    transform: translateY(-0.2rem);
+}
+
+/**************************** Conv *******************************/
+/* Make conversion parent responsive */
+#conversion_parent {
+    height: auto;          /* allow the height to grow naturally */
+    margin-left: -40px;    /* replaces transform */
+}
+
+/* FIXED: No more double/gapped borders */
+#dist_table {
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+#dist_table td {
+    border: 2px solid black;
+    padding: 0;
+}
+.c_event,
+.c_time {
+    font-size: 2rem;
+    text-align: end;
+}
+
+.c_event{
+    width: 6rem;
+}
+
+
+
+/**************************** wotb *******************************/
+#workout_chart {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 15rem;
+}
+
+#wo_table {
+    width: 40rem;
+    border-collapse: collapse;
+    transform: translateX(-0.45rem);
+    transform: translateY(-5rem);
+}
+
+#t_t {
+    border: 2px solid black;
+}
+
+.pace {
+    width: 5rem;
+    border: 2px solid black;
+}
+
+.w_type {
+    font-size: 2rem;
+    border: 2px solid black;
+}
+
+.w_pace {
+    text-align: end;
+    height: 3rem;
+    width: 5rem;
+    border: 2px solid black;
+    font-size: 2rem;
+}
+
+/**************************** bot *******************************/
+#bot {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 1.5rem;
+}
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+#head,
+#body_parent,
+#workout_chart,
+#bot {
+    width: 100%;
+}
+
 @media (max-width: 601px) {
 
     /* ... existing rules ... */
@@ -325,3 +583,4 @@ margin: 0 auto;
 }
 
 /*changed 7*/
+
