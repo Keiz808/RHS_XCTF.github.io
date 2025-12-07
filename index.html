@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <!--HEAD-->
+    <div id="head">
+        <div id="head_text">RHS XC+TF</div>
+        <div id="cd"> Carpe Diem Quam Minimum Credula Postero</div>
+    </div>
+
+    <!--body parent-->
+    <div id="body_parent">
+        <div id="top">
+            <!-- Calculator -->
+            <div id="calculator_parent">
+                <p class="titles"> Calculator</p>
+                <div id="event_parent"> <!-- parent for race selector -->
+                    <p class="txt">Select an Event:
+                        <select id="eventSelector">
+                            <option value="">- -</option>
+                            <option value="400m">400m</option>
+                            <option value="800m">800m</option>
+                            <option value="1500m">1500m</option>
+                            <option value="3000m">3000m</option>
+
+                        </select>
+                    </p>
+                </div>
+                <div id="time_parent">
+                    <label>Enter Time:</label>
+                    <div class="time_inputs">
+                        <input id="min" type="number" min="0" value="0"> <span>min</span>
+                        <input id="sec" type="number" min="0" value="0"> <span>sec</span>
+                    </div>
+                </div>
+                <button onclick="calculate()" id="calculate"> Calculate </button>
+            </div> <!-- End of calculator-->
+
+            <!--Conversion Chart-->
+            <div id="conversion_parent">
+                <p class="titles"> Conversion Chart</p>
+                <div id="dist_conv">
+                    <table id="dist_table">
+                        <tr>
+                            <td class="c_event"> 5k </td>
+                            <td class="c_time"><p id="5k"> </p></td>
+                        </tr>
+                        <tr>
+                            <td class="c_event"> 3k </td>
+                            <td class="c_time"><p id="3k"> </p></td>
+                        </tr>
+                        <tr>
+                            <td class="c_event"> 1500m </td>
+                            <td class="c_time"><p id="1500"> </p></td>
+                        </tr>
+                        <tr>
+                            <td class="c_event"> 800m </td>
+                            <td class="c_time"><p id="800"> </p></td>
+                        </tr>
+                        <tr>
+                            <td class="c_event"> 400m </td>
+                            <td class="c_time"><p id="400"> </p></td>
+                        </tr>
+                        <tr>
+                            <td class="c_event"> 200m </td>
+                            <td class="c_time"><p id="200"> </p></td>
+                        </tr>
+                        <tr>
+                            <td class="c_event"> 100m </td>
+                            <td class="c_time"><p id="100"> </p></td>
+                        </tr>
+                    </table>
+                </div>
+            </div> <!--End of conversion_parent-->
+        </div> <!-- top part-->
+
+        <!-- Workout Chart with responsive grid -->
+        <div id="workout_chart">
+            <div id="wo_grid_wrapper">
+                <!-- Header Row (Desktop) -->
+                <div class="grid_row header">
+                    <div class="grid_cell w_type_top">Workout:</div>
+                    <div class="grid_cell pace">Pace</div>
+                    <div class="grid_cell pace">200m</div>
+                    <div class="grid_cell pace">400m</div>
+                    <div class="grid_cell pace">800m</div>
+                </div>
+
+                <!-- Workouts -->
+                <div class="grid_row workout" data-name="SE1">
+                    <div class="grid_cell w_type">SE1</div>
+                    <div class="grid_cell w_pace"><p id="SE1"></p></div>
+                    <div class="grid_cell w_pace"><p id="SE1_200"></p></div>
+                    <div class="grid_cell w_pace"><p id="SE1_400"></p></div>
+                    <div class="grid_cell w_pace"><p id="SE1_800"></p></div>
+                </div>
+
+                <div class="grid_row workout" data-name="SE2">
+                    <div class="grid_cell w_type">SE2</div>
+                    <div class="grid_cell w_pace"><p id="SE2"></p></div>
+                    <div class="grid_cell w_pace"><p id="SE2_200"></p></div>
+                    <div class="grid_cell w_pace"><p id="SE2_400"></p></div>
+                    <div class="grid_cell w_pace"><p id="SE2_800"></p></div>
+                </div>
+
+                <div class="grid_row workout" data-name="LT1">
+                    <div class="grid_cell w_type">LT1</div>
+                    <div class="grid_cell w_pace"><p id="LT1"></p></div>
+                    <div class="grid_cell w_pace"><p id="LT1_200"></p></div>
+                    <div class="grid_cell w_pace"><p id="LT1_400"></p></div>
+                    <div class="grid_cell w_pace"><p id="LT1_800"></p></div>
+                </div>
+
+                <div class="grid_row workout" data-name="LT2">
+                    <div class="grid_cell w_type">LT2/CV</div>
+                    <div class="grid_cell w_pace"><p id="LT2"></p></div>
+                    <div class="grid_cell w_pace"><p id="LT2_200"></p></div>
+                    <div class="grid_cell w_pace"><p id="LT2_400"></p></div>
+                    <div class="grid_cell w_pace"><p id="LT2_800"></p></div>
+                </div>
+
+                <div class="grid_row workout" data-name="Vo2">
+                    <div class="grid_cell w_type">Vo2 Max</div>
+                    <div class="grid_cell w_pace"><p id="Vo2"></p></div>
+                    <div class="grid_cell w_pace"><p id="Vo2_200"></p></div>
+                    <div class="grid_cell w_pace"><p id="Vo2_400"></p></div>
+                    <div class="grid_cell w_pace"><p id="Vo2_800"></p></div>
+                </div>
+
+                <div class="grid_row workout" data-name="Tempo">
+                    <div class="grid_cell w_type">Tempo</div>
+                    <div class="grid_cell w_pace"><p id="t"></p></div>
+                    <div class="grid_cell w_pace"><p id="t_200"></p></div>
+                    <div class="grid_cell w_pace"><p id="t_400"></p></div>
+                    <div class="grid_cell w_pace"><p id="t_800"></p></div>
+                </div>
+
+                <div class="grid_row workout" data-name="SoftTempo">
+                    <div class="grid_cell w_type">Soft Tempo</div>
+                    <div class="grid_cell w_pace"><p id="st"></p></div>
+                    <div class="grid_cell w_pace"><p id="st_200"></p></div>
+                    <div class="grid_cell w_pace"><p id="st_400"></p></div>
+                    <div class="grid_cell w_pace"><p id="st_800"></p></div>
+                </div>
+
+                <div class="grid_row workout" data-name="ExtensiveTempo">
+                    <div class="grid_cell w_type">Extensive Tempo</div>
+                    <div class="grid_cell w_pace"><p id="et"></p></div>
+                    <div class="grid_cell w_pace"><p id="et_200"></p></div>
+                    <div class="grid_cell w_pace"><p id="et_400"></p></div>
+                    <div class="grid_cell w_pace"><p id="et_800"></p></div>
+                </div>
+
+                <div class="grid_row workout" data-name="IntensiveTempo">
+                    <div class="grid_cell w_type">Intensive Tempo</div>
+                    <div class="grid_cell w_pace"><p id="it"></p></div>
+                    <div class="grid_cell w_pace"><p id="it_200"></p></div>
+                    <div class="grid_cell w_pace"><p id="it_400"></p></div>
+                    <div class="grid_cell w_pace"><p id="it_800"></p></div>
+                </div>
+            </div>
+        </div> <!-- workout chart end -->
+        <div id="img_div"><img id="schedule" src="schedule.png"></div>
+        <div id="bot"></div>
+    </div> <!-- end of body_parent-->
+</body>
+
+</html>
