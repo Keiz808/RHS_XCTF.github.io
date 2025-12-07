@@ -158,7 +158,6 @@ body {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     width: 100%;          /* wrapper fills container */
-    padding-left: 1rem;   /* prevent left column from cutting off on mobile */
 }
 
 /* WORKOUT TABLE */
@@ -217,14 +216,34 @@ body {
         gap: 0.2rem;
     }
 
+    /* Workout table wrapper flush left */
     #wo_table_wrapper {
-        padding-left: 0;     /* flush left so column is visible */
+        padding-left: 0;
     }
 
+    /* Workout table scrollable */
     #wo_table {
         min-width: 600px;    /* triggers horizontal scroll if table is too wide */
         font-size: 1.2rem;
         margin: 0;           /* scroll starts at leftmost column */
+    }
+}
+
+/* Mobile portrait specifically */
+@media (max-width: 600px) and (orientation: portrait) {
+    #body_parent,
+    #top {
+        width: 100vw;         /* ensures parent is full viewport width */
+        overflow-x: visible;
+    }
+
+    #wo_table_wrapper {
+        padding-left: 0;
+    }
+
+    #wo_table {
+        margin: 0;
+        min-width: 600px;
     }
 }
 
