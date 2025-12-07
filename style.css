@@ -14,38 +14,44 @@ body {
 @media (max-width: 600px) {
     /* ... existing rules ... */
 
-    /* 4. Upscale Calculator Button & Inputs */
-    #calculate {
-        width: 80%;
-        height: 4em;
-        font-size: 2rem;
-        /* <-- MATCHES workout table .w_type */
-        display: block;
+    /* 2. Force Calculator & Conversion to Stack and be LARGE */
+    #calculator_parent,
+    #conversion_parent {
+        /* Pushing the width closer to the edges */
+        width: 90%;
+        /* <-- CHANGED from 90% */
+        max-width: none;
+        flex: 1 1 98%;
+        /* <-- CHANGED from 90% */
         margin-left: auto;
         margin-right: auto;
-        text-align: center;
+
+    padding-right:0px 10px 10px 0px; /* Adds 10px of space on the left and right */
     }
 
-    /* NEW: Increase all standard text in the calculator area */
-    .txt,
-    #time_parent {
-        display: flex;
+    /* 5. Conversion Table Cell Sizing */
+    .c_event {
+        /* NEW STYLE: Reduce the width dedicated to the event name */
+        width: 5rem; /* Changed from default width to a smaller fixed size */
         font-size: 2rem;
-        gap: 1rem;
-        /* <-- NEW: Adds 1rem spacing between elements */
+        /* Ensure text does not wrap */
+        white-space: nowrap; 
     }
-
-    /* 5. Conversion Table Sizing (to fit inside the upscaled parent) */
-    #dist_table {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    /* NEW: Increase conversion table text */
-    .c_event,
+    
     .c_time {
+        /* NEW STYLE: Set width to auto to ensure it consumes all remaining space */
+        width: auto; 
         font-size: 2rem;
-        /* <-- MATCHES workout table .w_type */
+    }
+
+    /* 6. Workout Table (wotb) Sizing */
+    #wo_table {
+        width: 98%;
+        /* <-- CHANGED from 95% */
+        transform: none;
+        /* Ensures the table is truly centered by making it responsive to its parent */
+        margin-left: auto;
+        margin-right: auto;
     }
 
     /* ... remaining rules ... */
@@ -83,12 +89,10 @@ body {
 #body_parent {
     display: flex;
     flex-wrap: wrap;
-    /* allows children to go to next row */
     justify-content: center;
+    /* Keeps the starting point centered */
     gap: 2rem;
     align-items: flex-start;
-    /* keeps stacked items at top */
-
 }
 
 .titles {
@@ -98,14 +102,16 @@ body {
 
 #top {
     display: flex;
-    /* CHANGE: Remove the restrictive 50% width and make it full width */
     width: 100%;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    /* CHANGE: Remove the invalid transform that might cause shifting */
     transform: none;
-    transform: translateY(-3rem)
+    /* Ensure transform is gone */
+
+    /* NEW STYLE: Apply a small negative margin to shift the centered block left */
+    margin-left: -45px;
+    /* Adjust this value (e.g., -50px) to control the shift */
 }
 
 /**************************** Calc *******************************/
@@ -133,7 +139,6 @@ body {
     width: 2rem;
     margin-left: 0.5rem;
     transform: translateY(-4.9px)
-
 }
 
 #calculate {
@@ -182,10 +187,11 @@ body {
     /* Keep it from getting too big on desktop */
     clear: both;
     margin-top: 1rem;
+    margin-left: 1.5rem;
 }
 
 #dist_table {
-    width: 30rem;
+    width: 27rem;
     /* <-- CHANGED from 20rem */
     height: 20rem;
     border-collapse: collapse;
@@ -260,3 +266,5 @@ body {
 
 
 }
+
+/*changed 2*/
