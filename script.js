@@ -469,7 +469,158 @@ document.addEventListener("DOMContentLoaded", function () {
             let it_bot4 = it_bot2 * 2;
             document.getElementById("it_400").textContent = formatTime(it_bot4) + "~" + formatTime(it_top4)
         }
+        
+        /////////////////////////// 3000 ///////////////////////////
+        else if (event === "3000m"){
 
+            //3000
+            let three = tot
+            document.getElementById("3k").textContent = formatTime(three)
+
+            //3000 -> 5000
+            let five = tot*1.78048
+            document.getElementById("5k").textContent = formatTime(five)
+
+            //3000 -> 1500
+            let fifteen = tot/2.23
+            document.getElementById("1500").textContent = formatTime(fifteen)
+
+            //1500 -> 400
+            let four = fifteen*0.205
+            document.getElementById("400").textContent = formatTime(four)
+
+            //400 -> 200
+            let two = four/2.2
+            document.getElementById("200").textContent = formatTime(two)
+
+            //400 -> 100
+            let one = two/2.01
+            document.getElementById("100").textContent = formatTime(one)
+
+            //400 -> 800
+            let e = (four*1.66)*1.38
+            document.getElementById("800").textContent = formatTime(e)
+
+            //SE1
+            let SE1_4 = four * 1.0526
+            document.getElementById("SE1_400").textContent = formatTime(SE1_4)
+            let SE1 = (four * 1.0526) * 4.0225;
+            document.getElementById("SE1").textContent = formatTime(SE1)
+            let SE1_8 = SE1_4 * 2;
+            document.getElementById("SE1_800").textContent = formatTime(SE1_8)
+            let SE1_2 = SE1_4 / 2;
+            document.getElementById("SE1_200").textContent = formatTime(SE1_2)
+
+
+            //SE2
+            let SE2_top = (four * 1.2048) * 4.0225;
+            let SE2_bot = (four * 1.1494) * 4.0225;
+            document.getElementById("SE2").textContent = formatTime(SE2_bot) + "~" + formatTime(SE2_top)
+            let SE2_top2 = SE2_top / 2;
+            let SE2_bot2 = SE2_bot / 2;
+            document.getElementById("SE2_200").textContent = formatTime(SE2_bot2) + "~" + formatTime(SE2_top2)
+            let SE2_top8 = SE2_top * 2;
+            let SE2_bot8 = SE2_bot * 2;
+            document.getElementById("SE2_800").textContent = formatTime(SE2_bot8) + "~" + formatTime(SE2_top8)
+            let SE2_top4 = SE2_top;
+            let SE2_bot4 = SE2_bot;
+            document.getElementById("SE2_400").textContent = formatTime(SE2_bot4) + "~" + formatTime(SE2_top4)
+
+            //LT1
+            let LT1_top = (three * 1.25) * (1609 / 3000);
+            let LT1_bot = (three * 1.1765) * (1609 / 3000);
+            document.getElementById("LT1").textContent = formatTime(LT1_bot) + "~" + formatTime(LT1_top)
+            let LT1_top8 = LT1_top / 2;
+            let LT1_bot8 = LT1_bot / 2;
+            document.getElementById("LT1_800").textContent = formatTime(LT1_bot8) + "~" + formatTime(LT1_top8)
+            let LT1_top4 = LT1_top / 4;
+            let LT1_bot4 = LT1_bot / 4;
+            document.getElementById("LT1_400").textContent = formatTime(LT1_bot4) + "~" + formatTime(LT1_top4)
+            let LT1_top2 = LT1_top / 8;
+            let LT1_bot2 = LT1_bot / 8;
+            document.getElementById("LT1_200").textContent = formatTime(LT1_bot2) + "~" + formatTime(LT1_top2)
+
+            //LT2/CV
+            let LT2_top = (three * 1.1111) * (1609 / 3000);
+            let LT2_bot = (three * 1.0526) * (1609 / 3000);
+            document.getElementById("LT2").textContent = formatTime(LT2_bot) + "~" + formatTime(LT2_top)
+            let LT2_top8 = ((three * 1.1111) / 3000) * 800;
+            let LT2_bot8 = ((three * 1.0526) / 3000) * 800;
+            document.getElementById("LT2_800").textContent = formatTime(LT2_bot8) + "~" + formatTime(LT2_top8)
+            let LT2_top4 = LT2_top / 2;
+            let LT2_bot4 = LT2_bot / 2;
+            document.getElementById("LT2_400").textContent = formatTime(LT2_bot4) + "~" + formatTime(LT2_top4)
+            let LT2_top2 = LT2_top / 4;
+            let LT2_bot2 = LT2_bot / 4;
+            document.getElementById("LT2_200").textContent = formatTime(LT2_bot2) + "~" + formatTime(LT2_top2)
+
+            //Vo2 max
+            let Vo2_top = (three * (1609 / 3000));
+            document.getElementById("Vo2").textContent = formatTime(Vo2_top)
+            let Vo2_top8 = (three / 3000) * 800;
+            document.getElementById("Vo2_800").textContent = formatTime(Vo2_top8)
+            let Vo2_top4 = Vo2_top / 2;
+            document.getElementById("Vo2_400").textContent = formatTime(Vo2_top4)
+            let Vo2_top2 = Vo2_top / 4;
+            document.getElementById("Vo2_200").textContent = formatTime(Vo2_top2)
+
+            //tempo
+            let t_topm = five / 5000
+            let t_botm = five / 5000
+            let t_top = (t_topm * 1609) + 55;
+            let t_bot = (t_botm * 1609) + 45;
+            document.getElementById("t").textContent = formatTime(t_bot) + "~" + formatTime(t_top)
+            let t_top8 = ((t_top / 1609) * 800);
+            let t_bot8 = ((t_top / 1609) * 800);
+            document.getElementById("t_800").textContent = formatTime(t_bot8) + "~" + formatTime(t_top8)
+            let t_top4 = t_top / 2;
+            let t_bot4 = t_bot / 2;
+            document.getElementById("t_400").textContent = formatTime(t_bot4) + "~" + formatTime(t_top4)
+            let t_top2 = t_top / 4;
+            let t_bot2 = t_bot / 4;
+            document.getElementById("t_200").textContent = formatTime(t_bot2) + "~" + formatTime(t_top2)
+
+            //soft tempo
+            let st_top = t_top + 30;
+            let st_bot = t_bot + 20;
+            document.getElementById("st").textContent = formatTime(st_bot) + "~" + formatTime(st_top)
+            let st_top8 = ((st_top / 1609) * 800);
+            let st_bot8 = ((st_bot / 1609) * 800);
+            document.getElementById("st_800").textContent = formatTime(st_bot8) + "~" + formatTime(st_top8)
+            let st_top4 = st_top / 2;
+            let st_bot4 = st_bot / 2;
+            document.getElementById("st_400").textContent = formatTime(st_bot4) + "~" + formatTime(st_top4)
+            let st_top2 = st_top / 4;
+            let st_bot2 = st_bot / 4;
+            document.getElementById("st_200").textContent = formatTime(st_bot2) + "~" + formatTime(st_top2)
+
+            //extensive tempo
+            let et_top = ((two * 1.3333) / 200) * 1609;
+            document.getElementById("et").textContent = formatTime(et_top)
+            let et_top8 = (two * 1.3333) * 4;
+            document.getElementById("et_800").textContent = formatTime(et_top8)
+            let et_top4 = (two * 1.3333) * 2;
+            document.getElementById("et_400").textContent = formatTime(et_top4)
+            let et_top2 = (two * 1.3333);
+            document.getElementById("et_200").textContent = formatTime(et_top2)
+
+            //intensive tempo
+            let it_top = ((one * 1.25) / 100) * 1609;
+            let it_bot = ((one * 1.1111) / 100) * 1609;
+            document.getElementById("it").textContent = formatTime(it_bot) + "~" + formatTime(it_top)
+            let it_top2 = (one * 1.25) * 2;
+            let it_bot2 = (one * 1.1111) * 2;
+            document.getElementById("it_200").textContent = formatTime(it_bot2) + "~" + formatTime(it_top2)
+            let it_top8 = it_top2 * 4;
+            let it_bot8 = it_bot2 * 4;
+            document.getElementById("it_800").textContent = formatTime(it_bot8) + "~" + formatTime(it_top8)
+            let it_top4 = it_top2 * 2;
+            let it_bot4 = it_bot2 * 2;
+            document.getElementById("it_400").textContent = formatTime(it_bot4) + "~" + formatTime(it_top4)
+
+
+
+        }
         // Clear input fields
         document.getElementById("min").value = "";
         document.getElementById("sec").value = "";
