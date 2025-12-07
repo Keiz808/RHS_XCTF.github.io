@@ -119,9 +119,8 @@ body {
     min-width: 300px;
     width: 100%;
     text-align: center;
-    border: 3px solid black; /* added border */
     padding: 1rem;
-    border-radius: 10px;
+    /* This padding will be removed on mobile via media query */
 }
 
 #dist_table {
@@ -159,9 +158,9 @@ body {
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
     width: 100%;
-    border: 3px solid black; /* added border */
-    border-radius: 10px;
-    padding: 0.5rem;
+    /* Ensure the wrapper is flush with the edge of its parent */
+    padding: 0; /* Removed padding to help with scroll position */
+    margin: 0;
 }
 
 #wo_table {
@@ -169,7 +168,8 @@ body {
     table-layout: auto;
     min-width: 600px;
     width: auto;
-    margin: 0 auto;
+    /* Crucial fix: Remove auto margin so the table starts at the far left of the wrapper */
+    margin: 0;
     white-space: nowrap;
 }
 
@@ -202,6 +202,12 @@ body {
         overflow-x: visible;
     }
 
+    /* FIX 2: Remove border/padding around conversion chart on mobile */
+    #conversion_parent {
+        padding: 0;
+        border: none;
+    }
+
     #calculator_parent,
     #conversion_parent {
         width: 100%;
@@ -214,16 +220,19 @@ body {
         gap: 0.3rem;
     }
 
+    /* FIX 1: Ensure the table wrapper starts the scroll at the far left */
     #wo_table_wrapper {
         overflow-x: scroll;
         -webkit-overflow-scrolling: touch;
         width: 100%;
+        padding: 0; /* Remove internal padding on mobile */
     }
 
     #wo_table {
         min-width: 600px;
         white-space: nowrap;
         font-size: 1.1rem;
+        margin: 0; /* Ensure table is flush left */
     }
 
     #wo_table th,
@@ -234,13 +243,16 @@ body {
 
 /* Mobile portrait specifically */
 @media (max-width: 600px) and (orientation: portrait) {
+
+    /* FIX 1: Explicitly set margin to 0 and remove max-width */
     #wo_table {
-        min-width: 450px;   /* smaller table for portrait */
+        min-width: 450px; 
         max-width: none;
         width: auto;
         font-size: 1rem;
         white-space: nowrap;
         word-break: keep-all;
+        margin: 0;
     }
 
     #wo_table td,
@@ -249,10 +261,12 @@ body {
         word-break: keep-all;
     }
 
+    /* FIX 1: Set padding to 0 and use !important to override other rules */
     #wo_table_wrapper {
         overflow-x: scroll !important;
         -webkit-overflow-scrolling: touch;
         width: 100%;
+        padding: 0 !important;
     }
 }
 
@@ -277,6 +291,16 @@ body {
 
     #wo_table {
         max-width: 1000px;
+        /* Keep the default margin: 0 auto; alignment for desktop by NOT overriding it here,
+           but since you have margin: 0 auto in the original code, I'll keep it out of the
+           media query to let it apply for large screens when the table is not at min-width. */
+        margin: 0 auto;
+    }
+    
+    /* Re-apply desktop margin/padding to conversion chart parent */
+    #conversion_parent {
+        padding: 1rem;
+        border: none;
     }
 }
 
