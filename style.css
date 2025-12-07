@@ -2,276 +2,239 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-
 body {
-    font-family: Arial, sans-serif;
-    scroll-behavior: smooth;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
 }
-
 /* =================== HEAD =================== */
 #head {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem;
 }
-
 #head_text {
-    font-size: clamp(3rem, 8vw, 8rem);
-    margin-bottom: 0.5rem;
+    font-size: clamp(3rem, 8vw, 8rem);
+    margin-bottom: 0.5rem;
 }
-
 #cd {
-    font-size: clamp(1.5rem, 4vw, 3rem);
+    font-size: clamp(1.5rem, 4vw, 3rem);
 }
-
 /* =================== BODY PARENT =================== */
 #body_parent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 0 1rem;
-    gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 1rem;
+    gap: 3rem;
 }
-
 .titles {
-    font-size: clamp(2rem, 5vw, 2.5rem);
-    text-align: center;
-    margin-bottom: 1rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 1rem;
 }
-
 /* =================== TOP SECTION =================== */
 #top {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    width: 100%;
-    max-width: 1200px;
-    gap: 2rem;
-    margin: 0 auto;
-    overflow-x: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    gap: 2rem;
+    margin: 0 auto;
+    overflow-x: auto;
 }
-
 /* ---- CALCULATOR ---- */
 #calculator_parent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 350px;
-    min-width: 300px;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 350px;
+    min-width: 300px;
+    width: 100%;
 }
-
 #event_parent {
-    width: 100%;
-    margin-bottom: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
 }
-
 #eventSelector {
-    height: 2.2rem;
-    font-size: 1rem;
+    height: 2.2rem;
+    font-size: 1rem;
 }
-
 #time_parent {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    justify-content: center;
-    flex-wrap: nowrap;
-    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin-bottom: 1rem;
 }
-
 .time_inputs {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
 }
-
 .time_inputs input {
-    width: 3rem;
-    height: 2rem;
-    text-align: center;
-    font-size: 1rem;
+    width: 3rem;
+    height: 2rem;
+    text-align: center;
+    font-size: 1rem;
 }
-
 #calculate {
-    width: 80%;
-    max-width: 200px;
-    height: 3rem;
-    font-size: 1.5rem;
-    margin-top: 0.5rem;
-    cursor: pointer;
+    width: 80%;
+    max-width: 200px;
+    height: 3rem;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
 }
-
 /* ---- CONVERSION CHART ---- */
 #conversion_parent {
-    max-width: 350px;
-    min-width: 300px;
-    width: 100%;
-    text-align: center;
+    max-width: 350px;
+    min-width: 300px;
+    width: 100%;
+    text-align: center;
 }
-
 #dist_table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-    min-width: 300px;
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    min-width: 300px;
 }
-
 #dist_table td {
-    border: 2px solid black;
-    padding: 0.5rem;
-    word-break: break-word;
+    border: 2px solid black;
+    padding: 0.5rem;
+    word-break: break-word;
 }
-
 .c_event {
-    width: 40%;
-    text-align: left;
-    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    width: 40%;
+    text-align: left;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
 }
-
 .c_time {
-    text-align: right;
-    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    text-align: right;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
 }
-
 /* =================== WORKOUT CHART =================== */
 #workout_chart {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
-
 #wo_table_wrapper {
-    overflow-x: scroll;               /* ← forced scrolling */
-    -webkit-overflow-scrolling: touch; /* ← smooth mobile scrolling */
-    width: 100%;
+    overflow-x: scroll;               /* ← forced scrolling */
+    -webkit-overflow-scrolling: touch; /* ← smooth mobile scrolling */
+    width: 100%;
 }
-
 #wo_table {
-    border-collapse: collapse;
-    table-layout: auto;
-    min-width: 600px;
-    width: auto;
-    margin: 0 auto;
-    white-space: nowrap;
+    border-collapse: collapse;
+    table-layout: auto;
+    min-width: 600px;
+    width: auto;
+    margin: 0 auto;
+    white-space: nowrap;
 }
-
 #wo_table td,
 #wo_table th {
-    border: 2px solid black;
-    text-align: center;
-    font-size: clamp(1rem, 2vw, 2rem);
-    padding: 0.5rem;
+    border: 2px solid black;
+    text-align: center;
+    font-size: clamp(1rem, 2vw, 2rem);
+    padding: 0.5rem;
 }
-
 /* =================== BOT =================== */
 #bot {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 2rem auto;
 }
-
 /* =================== RESPONSIVE =================== */
-
 /* Small mobile */
 @media (max-width: 600px) {
-    #top {
-        flex-direction: column;
-        gap: 2rem;
-        align-items: center;
-    }
-
-    #calculator_parent,
-    #conversion_parent {
-        width: 100%;
-        max-width: 350px;
-        margin: 0 auto;
-    }
-
-    #time_parent {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.2rem;
-    }
-
-    #wo_table_wrapper {
-        padding-left: 0;
-    }
-
-    #wo_table {
-        font-size: 1.2rem;
-        margin: 0;
-        white-space: nowrap;
-    }
+    #top {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+    #calculator_parent,
+    #conversion_parent {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    #time_parent {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.2rem;
+    }
+    #wo_table_wrapper {
+        padding-left: 0;
+    }
+    #wo_table {
+        font-size: 1.2rem;
+        margin: 0;
+        white-space: nowrap;
+    }
 }
-
-/* 🔥 FIXED — MOBILE PORTRAIT */
+/* 🔥 FIXED — MOBILE PORTRAIT (REVISED) */
 @media (max-width: 600px) and (orientation: portrait) {
-
-    #wo_table {
-        min-width: 450px;      /* ← shrinks table width on portrait */
-        max-width: none;
-        width: auto;
-        font-size: 1rem;
-        white-space: normal;   /* ← wraps text instead of forcing huge width */
-        word-break: break-word;
-    }
-
-    #wo_table td,
-    #wo_table th {
-        white-space: normal;   /* ← ensures wrapping */
-        word-break: break-word;
-    }
-
-    #wo_table_wrapper {
-        overflow-x: scroll !important;  /* ← guaranteed scroll in portrait */
-        -webkit-overflow-scrolling: touch;
-        width: 100%;
-    }
+    /* The original block below was causing the table to shrink and wrap, 
+       disabling the needed horizontal scroll on iPhones. */
+    #wo_table {
+        min-width: 450px;      
+        max-width: none;
+        width: auto;
+        font-size: 1rem;
+        /* white-space: normal; <-- REMOVED/CHANGED to nowrap */
+        white-space: nowrap; /* CRITICAL FIX: Forces content onto a single line */
+        word-break: keep-all; /* CRITICAL FIX: Ensures words don't break/wrap */
+    }
+    #wo_table td,
+    #wo_table th {
+        /* white-space: normal; <-- REMOVED/CHANGED to nowrap */
+        white-space: nowrap;  /* CRITICAL FIX: Ensures cell content doesn't wrap */
+        word-break: keep-all; /* CRITICAL FIX: Prevents text from being cut off */
+    }
+    #wo_table_wrapper {
+        overflow-x: scroll !important;  /* ← guaranteed scroll in portrait */
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+    }
 }
-
 /* Medium screens */
 @media (min-width: 601px) and (max-width: 900px) {
-    #top {
-        gap: 2rem;
-    }
+    #top {
+        gap: 2rem;
+    }
 }
-
 /* Large desktop */
 @media (min-width: 901px) {
-    #body_parent {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    #time_parent {
-        flex-wrap: nowrap;
-    }
-
-    #wo_table {
-        max-width: 1000px;
-    }
+    #body_parent {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #time_parent {
+        flex-wrap: nowrap;
+    }
+    #wo_table {
+        max-width: 1000px;
+    }
 }
-
 /* Number inputs - remove arrows */
 input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
-
-/* change */
