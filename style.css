@@ -176,11 +176,6 @@ body {
     white-space: nowrap;
 }
 
-.grid_cell:not(.w_type) {
-    white-space: normal;
-    word-break: break-word;
-}
-
 .header .grid_cell {
     font-weight: bold;
     background-color: #ddd;
@@ -271,26 +266,34 @@ input[type=number]::-webkit-inner-spin-button {
 /* =================== IMAGE =================== */
 #img_div {
     width: 100%;
-    max-width: 16500px; /* max image size on large screens */
-    min-width: 800px;  /* don't shrink below this width */
+    max-width: 16500px;
+    /* max image size on large screens */
+    min-width: 800px;
+    /* don't shrink below this width */
     margin: 0 auto;
-    overflow-x: auto;  /* horizontal scroll when needed */
-    padding: 1rem 0;   /* optional padding */
+    overflow-x: auto;
+    /* horizontal scroll when needed */
+    padding: 1rem 0;
+    /* optional padding */
 }
 
 #img_div img {
-    width: 100%;        /* fills the div */
+    width: 100%;
+    /* fills the div */
     height: auto;
     display: block;
-    min-width: 800px;   /* image won't shrink below this width */
-    max-width: 16500px; /* max image size on large screens */
+    min-width: 800px;
+    /* image won't shrink below this width */
+    max-width: 16500px;
+    /* max image size on large screens */
 
 }
 
 /* Mobile portrait */
 @media (max-width: 600px) and (orientation: portrait) {
     #img_div {
-        min-width: 0;   /* allow it to shrink for mobile */
+        min-width: 0;
+        /* allow it to shrink for mobile */
     }
 
     #img_div img {
