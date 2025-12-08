@@ -176,6 +176,11 @@ body {
     white-space: nowrap;
 }
 
+.grid_cell:not(.w_type) {
+    white-space: normal;
+    word-break: break-word;
+}
+
 .header .grid_cell {
     font-weight: bold;
     background-color: #ddd;
