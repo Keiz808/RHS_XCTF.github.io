@@ -119,10 +119,8 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("Vo2_200").textContent = formatTime(Vo2_top2)
 
             //tempo
-            let t_topm = five / 5000
-            let t_botm = five / 5000
-            let t_top = (t_topm * 1609) + 55;
-            let t_bot = (t_botm * 1609) + 45;
+            let t_top = ((three*1.0737)*0.6) + 5;
+            let t_bot = ((three*1.0737)*0.6) - 5;
             document.getElementById("t").textContent = formatTime(t_bot) + "~" + formatTime(t_top)
             let t_top8 = ((t_top / 1609) * 800);
             let t_bot8 = ((t_bot / 1609) * 800);
@@ -268,10 +266,8 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("Vo2_200").textContent = formatTime(Vo2_top2)
 
             //tempo
-            let t_topm = five / 5000
-            let t_botm = five / 5000
-            let t_top = (t_topm * 1609) + 55;
-            let t_bot = (t_botm * 1609) + 45;
+            let t_top = ((three*1.0737)*0.6) + 5;
+            let t_bot = ((three*1.0737)*0.6) - 5;
             document.getElementById("t").textContent = formatTime(t_bot) + "~" + formatTime(t_top)
             let t_top8 = ((t_top / 1609) * 800);
             let t_bot8 = ((t_bot / 1609) * 800);
@@ -416,10 +412,8 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("Vo2_200").textContent = formatTime(Vo2_top2)
 
             //tempo
-            let t_topm = five / 5000
-            let t_botm = five / 5000
-            let t_top = (t_topm * 1609) + 55;
-            let t_bot = (t_botm * 1609) + 45;
+            let t_top = ((three*1.0737)*0.6) + 5;
+            let t_bot = ((three*1.0737)*0.6) - 5;
             document.getElementById("t").textContent = formatTime(t_bot) + "~" + formatTime(t_top)
             let t_top8 = ((t_top / 1609) * 800);
             let t_bot8 = ((t_bot / 1609) * 800);
@@ -565,10 +559,8 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("Vo2_200").textContent = formatTime(Vo2_top2)
 
             //tempo
-            let t_topm = five / 5000
-            let t_botm = five / 5000
-            let t_top = (t_topm * 1609) + 55;
-            let t_bot = (t_botm * 1609) + 45;
+            let t_top = ((three*1.0737)*0.6) + 5;
+            let t_bot = ((three*1.0737)*0.6) - 5;
             document.getElementById("t").textContent = formatTime(t_bot) + "~" + formatTime(t_top)
             let t_top8 = ((t_top / 1609) * 800);
             let t_bot8 = ((t_bot / 1609) * 800);
